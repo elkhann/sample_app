@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   def User.new_token
     SecureRandom.urlsafe_base64
   end
-  
+  #dfsdfsd
   # Запоминает пользователя в базе данных для использования в постоянных сеансах.
   def remember
     self.remember_token = User.new_token
