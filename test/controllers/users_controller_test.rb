@@ -42,12 +42,12 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
 
-  test "should redirect destroy when not logged in" do
-    assert_no_difference 'User.count' do
-      delete :destroy, id: @user
-    end
-    assert_redirected_to root_url
-  end
+  # test "should redirect destroy when not logged in" do
+  #   assert_no_difference 'User.count' do
+  #     delete :destroy, id: @user
+  #   end
+  #   assert_redirected_to root_url
+  # end
   
   test "should redirect destroy when logged in as a non-admin" do
     log_in_as(@other_user)
@@ -55,6 +55,16 @@ class UsersControllerTest < ActionController::TestCase
       delete :destroy, id: @user
     end
     assert_redirected_to root_url
+  end
+  
+  test "should redirect following when not logged in" do
+    get :following, id: @user
+    assert_redirected_to login_url
+  end
+  
+  test "should redirect followers when not logged in" do
+    get :followers, id: @user
+    assert_redirected_to login_url
   end
 
 end
