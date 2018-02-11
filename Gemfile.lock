@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    web-console ~> 2.1.3
     CFPropertyList (2.3.5)
     actionmailer (4.2.0)
       actionpack (= 4.2.0)
